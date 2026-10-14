@@ -13,11 +13,24 @@
       <h1>Herramientas del Proceso de Diseño</h1>
       <p class="header-sub">Guía completa por etapas &mdash; 6 fases, decenas de herramientas</p>
     </div>
-    <nav id="nav-fases">
-    </nav>
+<nav id="nav-fases">
+  </nav>
+  <div class="top-btn" id="estudiantes-btn">
+    <a href="#estudiantes" style="color: inherit; text-decoration: none;">De mis estudiantes</a>
+  </div>
   </header>
 
   <main id="contenido"></main>
+
+  <section id="estudiantes" class="fase" style="border-left: 4px solid #9933cc; margin-top: 3rem; display: none;">
+    <div class="fase-header">
+      <span class="fase-num" style="background: #9933cc;">E</span>
+      <h2 class="fase-titulo">Las Herramientas de mis Estudiantes</h2>
+    </div>
+    <p class="fase-desc">Herramientas presentadas por estudiantes:</p>
+    <div class="grid-herramientas" id="estudiantes-grid">
+    </div>
+  </section>
 
   <div id="modal-overlay" class="modal-overlay hidden">
     <div class="modal" id="modal">
@@ -37,5 +50,6 @@
 
   <script src="datos.js"></script>
   <script src="app.js"></script>
+
 </body>
 </html>

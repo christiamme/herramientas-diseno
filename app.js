@@ -4,6 +4,9 @@
   const overlay = document.getElementById('modal-overlay');
   const modalBody = document.getElementById('modal-body');
   const modalClose = document.getElementById('modal-close');
+  const estudiantesBtn = document.getElementById('estudiantes-btn');
+  const estudiantesSection = document.getElementById('estudiantes');
+  const estudiantesGrid = document.getElementById('estudiantes-grid');
 
   function renderFases() {
     let html = '';
@@ -66,6 +69,40 @@
 
   function closeModal() {
     overlay.classList.add('hidden');
+  }
+
+  // Lógica para sección de estudiantes
+  estudiantesBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (!estudiantesSection) return;
+    if (estudiantesSection.style.display === 'none') {
+      estudiantesSection.style.display = 'block';
+      renderEstudiantes();
+    }
+    estudiantesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  function renderEstudiantes() {
+    const estudiantes = [
+      { nombre: 'Renata Carrillo', url: 'https://kreicsf.my.canva.site/caja-de-herramientas-ren/' },
+      { nombre: 'Camila Tapia', url: 'https://www.figma.com/proto/HCYz4gJXGmkVFjFA6yjQcU/Caja-de-herramientas?node-id=1-2&viewport=110%2C-4%2C0.49&t=9sKP02r4pZyIGQjo-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A2&page-id=0%3A1' },
+      { nombre: 'Fernanda Padilla', url: 'https://micajadeherramientasferpony.my.canva.site/' }
+    ];
+
+    let html = '';
+    estudiantes.forEach((est, i) => {
+      html += `
+        <div class="tarjeta" style="border-color: #9933cc;">
+          <div class="tarjeta-accent" style="background: #9933cc;"></div>
+          <h3>${est.nombre}</h3>
+          <p style="margin-top: 0.5rem;">
+            <a href="${est.url}" target="_blank" rel="noopener" style="color: #9933cc; text-decoration: underline;">Visitar sitio</a>
+          </p>
+        </div>
+      `;
+    });
+
+    estudiantesGrid.innerHTML = html;
   }
 
   main.addEventListener('click', function (e) {
